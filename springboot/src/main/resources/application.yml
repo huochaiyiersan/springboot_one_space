@@ -1,0 +1,13 @@
+#配置jsp页面跳转视图控制器
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  profiles:
+    active: dev
+#配置端口和上下文
+server:
+  port: 8088
+  servlet:
+    context-path: /ymltest
