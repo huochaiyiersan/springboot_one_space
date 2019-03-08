@@ -13,8 +13,12 @@ public class ProductController {
         String htmlContent = "<p style='color:red'> 红色文字</p>";
         Product currentProduct =new Product(5,"product e", 200);
 
+        boolean testBoolean = false;
+
         model.addAttribute("htmlContent", htmlContent);
         model.addAttribute("currentProduct", currentProduct);
+
+        model.addAttribute("testBoolean", testBoolean);
 
         return "protest";
     }
