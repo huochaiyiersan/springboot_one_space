@@ -51,6 +51,65 @@
     <p th:unless="${testBoolean}" >unless 等同于上一句，所以如果testBoolean 是 true ，本句话就不会显示</p>
     <p th:text="${testBoolean}?'当testBoolean为真的时候，显示本句话，这是用三相表达式做的':''" ></p>
 </div>
+
+<div class="showing">
+    <h2>普通遍历</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p:${ps}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="showing">
+    <h2>带状态的列表展示</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>id</th>
+                <th>产品名</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:class="${status.even}? 'even' : 'odd'" th:each="p,status:${ps}">
+                <td  th:text="${status.index}"></td>
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="showing">
+    <h2>列表滚动，结合select</h2>
+   <select size="3">
+       <option th:each="p:${ps}"  th:value="${p.id}"  th:selected="${p.id==currentProduct.id}"    th:text="${p.name}" >
+
+
+       </option>
+   </select>
+</div>
+<div class="showing">
+    <h2>遍历 radio </h2>
+
+    <input name="product" type="radio" th:each="p:${ps}" th:value="${p.id}"  th:checked="${p.id==currentProduct.id}"     th:text="${p.name}"  />
+
+</div>
 </body>
 
 </html>
