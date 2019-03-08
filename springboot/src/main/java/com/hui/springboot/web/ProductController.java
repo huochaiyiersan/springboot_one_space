@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -17,6 +18,8 @@ public class ProductController {
         Product currentProduct =new Product(5,"product e", 200);
 
         boolean testBoolean = false;
+
+        Date now = new Date();
 
         List<Product> ps = new ArrayList<>();
         ps.add(new Product(1,"product a", 50));
@@ -33,6 +36,7 @@ public class ProductController {
         model.addAttribute("currentProduct", currentProduct);
 
         model.addAttribute("testBoolean", testBoolean);
+        model.addAttribute("now", now);
 
         return "protest";
     }
