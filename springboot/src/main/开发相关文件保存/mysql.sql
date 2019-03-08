@@ -1,0 +1,9 @@
+CREATE DATABASE springbootlianxi;
+USE springbootlianxi;
+CREATE TABLE category_ (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  NAME VARCHAR(30),
+  PRIMARY KEY (id)
+) DEFAULT CHARSET=UTF8;
+
+SELECT * FROM category_;
